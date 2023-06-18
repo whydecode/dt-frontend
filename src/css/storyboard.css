@@ -1,7 +1,15 @@
-.storyboard {
-  padding-top: 80px;
-  overflow: hidden;
+.dashboard {
+  padding-top: 70px;
   width: 100vw;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+  position: relative;
+}
+.storyboard {
+  padding-top: 10px;
+  /* overflow: hidden; */
+  width: 90vw;
   display: flex;
   flex-wrap: wrap;
   justify-content: space-evenly;
@@ -14,21 +22,148 @@
 .handle {
   margin-bottom: 50px;
   height: 80%;
-  min-height: max(50vh, 250px);
+  min-height: max(60vh, 250px);
+  max-height: max(60vh, 250px);
   overflow: auto;
   cursor: move;
   box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25), 0px -4px 4px rgba(0, 0, 0, 0.25);
-  border-radius: 15px;
-  padding: 10px;
+  border-radius: 0 0 15px 15px;
   background-color: white;
+  overflow-y: scroll;
 }
+
+.handle::-webkit-scrollbar {
+  display: none;
+}
+
 .journeyBoard {
   position: fixed;
   left: 0;
+  width: 25vw;
+  min-width: 250px;
+  height: 100%;
+  z-index: 50;
+  background-color: white;
+  border-radius: 0px 20px 0px 0px;
+  overflow: hidden;
+  transition: 0.5s;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.25);
 }
+.journeyBoard > .checkmark {
+  display: none;
+}
+.journeyClose {
+  left: min(-20vw, -180px);
+}
+.journeyClose > .checkmark {
+  display: block;
+}
+.journeyHead {
+  background-color: black;
+  color: white;
+  height: 30px;
+  padding: 8px 15px 0 20px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.journeyHead > h5 {
+  margin: 0;
+  letter-spacing: 1.5px;
+}
+.journeyButton {
+  background-color: white;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+  margin: 0;
+  height: 20px;
+  border-radius: 20px;
+  transform: rotateZ(0deg);
+  transition: 0.5s;
+}
+
+.journeyClose > .journeyHead > .journeyButton {
+  transform: rotateZ(180deg);
+}
+
+.journeyClose > .journeyBody {
+  display: none;
+}
+
+.checkmark {
+  background-color: rgb(1, 159, 1);
+  width: 40px;
+  height: 40px;
+  border-radius: 10px;
+  position: absolute;
+  right: 10px;
+  top: 50px;
+}
+.checkmark > img {
+  width: 100%;
+}
+.journeyButton > img {
+  width: 20px;
+}
+
+.noticeBoard {
+  margin-top: 20px;
+  position: fixed;
+  right: 0;
+  width: 30vw;
+  min-width: 250px;
+  z-index: 50;
+  background-color: white;
+  border-radius: 20px 0px 0px 20px;
+  overflow: hidden;
+  transition: 0.5s;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.25);
+}
+
+.noticeClose {
+  right: min(-26vw, -200px);
+}
+
+.noticeHead > h5 {
+  writing-mode: vertical-rl;
+  text-orientation: upright;
+  margin: 0;
+  margin: 10px 5px;
+}
+
+.noticeHead {
+  width: 30px;
+  height: 100%;
+  background-color: black;
+  color: white;
+  text-align: center;
+  padding: 5px;
+}
+.noticeOpen {
+  background-color: transparent;
+  color: white;
+  text-align: left;
+  cursor: pointer;
+  border: none;
+  padding: 0px 0px 0px 5px;
+  margin-top: 10px;
+}
+
+.noticeOpen > img {
+  color: white;
+  width: 80%;
+  transform: rotateZ(0deg);
+  transition: 0.5s;
+}
+
+.noticeClose > .noticeHead > .noticeOpen > img {
+  transform: rotateZ(45deg);
+}
+
 .storyTop {
   width: 80%;
-  margin-bottom: 50px;
+  margin-bottom: 30px;
 }
 
 .task {
@@ -36,9 +171,336 @@
   border-radius: 5px;
   padding: 20px;
 }
-.task > h3{
-    margin: 0;
+.task > h3 {
+  margin: 0;
 }
-.task > p{
-    margin: 0;
+.task > p {
+  margin: 0;
+}
+
+.title {
+  color: #0029ff;
+}
+
+.taskHead {
+  width: 100%;
+  height: 30px;
+  background-color: black;
+  border-radius: 15px 15px 0 0;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.25);
+  padding: 10px 0;
+  text-align: center;
+  color: white;
+  cursor: pointer;
+}
+
+.taskDescription > p {
+  font-size: 15px;
+  margin: 0;
+}
+.taskDescription > p > span {
+  font-weight: 700;
+}
+.taskDescription {
+  border-bottom: 3px solid rgb(231, 231, 231);
+  transition: 0.5s;
+  padding: 15px 10px;
+  transition: 0.5s;
+}
+.desClose {
+  padding: 0 10px;
+  transform: translateY(-120%);
+}
+.desClose > p {
+  transition: 0.4s;
+  transition-delay: 0.05s;
+  font-size: 0;
+}
+
+.desOpen {
+  padding: 15px 10px;
+  transform: translateY(0%);
+  animation: display-animation 0.5s forwards;
+}
+
+.desButton {
+  position: absolute;
+  top: 15px;
+  right: 15px;
+  border: none;
+  border-radius: 25px;
+  font-weight: 900;
+  font-family: "Courier New", Courier, monospace;
+  cursor: pointer;
+  background-color: white;
+}
+.taskBody {
+  background-color: white;
+  transition: 0.5s;
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+}
+.taskBody > iframe {
+  width: 99.5%;
+  margin: 0 0.2%;
+  aspect-ratio: 16/9;
+}
+
+.bodyHead {
+  padding: 5px 10px;
+  border-bottom: 2px solid rgb(218, 218, 218);
+  font-weight: 700;
+}
+
+.bodyHead > img {
+  margin-right: 10%;
+  /* transform: rotateZ(180deg); */
+}
+
+.subThread {
+  display: flex;
+  flex-direction: column;
+  width: 40%;
+  border-radius: 10px;
+  box-shadow: 1px 3px 8px rgba(0, 0, 0, 0.25);
+  background: rgba(0, 0, 0, 0.05);
+  margin: 20px 0;
+}
+
+.subThread > input {
+  border: none;
+  border-radius: 10px;
+}
+
+.subThread > label {
+  margin: 5%;
+  font-size: small;
+}
+.subThread > input {
+  min-height: 60px;
+  padding: 5%;
+  vertical-align: top;
+}
+
+.subThread > input:focus {
+  outline: none;
+}
+.threadButtons {
+  display: flex;
+  justify-content: flex-end;
+  width: 40%;
+}
+.threadButtons > img {
+  margin: 0 2%;
+  cursor: pointer;
+  /* width: 18px;
+  height: 20px; */
+}
+
+.threadOptions {
+  width: 40%;
+  display: flex;
+  justify-content: space-between;
+}
+
+.threadOptions > select {
+  width: 45%;
+  border: none;
+  border-radius: 10px;
+  font-size: small;
+  box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.25);
+  border-radius: 4px;
+  padding: 2%;
+}
+.threadOptions > select:focus {
+  outline: none;
+}
+
+.threadOptions > select > option {
+  font-size: 10px;
+}
+
+#plusThread {
+  margin-top: 20px;
+  width: 80%;
+}
+
+#plusThread > button {
+  height: 30px;
+  margin-right: 5%;
+  background-color: #0029ff;
+  color: white;
+  border-radius: 10px;
+  border: none;
+  padding: 5px 10px;
+  cursor: pointer;
+}
+
+.summary {
+  width: 85%;
+}
+.summary > label {
+  font-size: small;
+  margin: 2%;
+}
+
+.threadEnd {
+  display: flex;
+  justify-content: space-between;
+  width: 85%;
+}
+.threadEnd > select {
+  width: 30%;
+}
+.threadEnd > div {
+  font-size: 14px;
+  cursor: pointer;
+}
+
+.threadEnd > div > svg {
+  margin: 0 5px;
+}
+
+#pencil {
+  color: blue;
+}
+
+.addButton {
+  padding: 20px 0;
+  width: 85%;
+  text-align: end;
+  margin-bottom: 50px;
+}
+
+.addButton > button {
+  height: 40px;
+  background-color: #0029ff;
+  color: white;
+  border-radius: 10px;
+  border: none;
+  padding: 5px 5%;
+  cursor: pointer;
+}
+.editor {
+  width: 80%;
+}
+
+.structureInput {
+  display: flex;
+  flex-direction: column;
+  width: 90%;
+}
+.structureInput > h4 {
+  margin: 2% 0;
+}
+.structureInput > input:focus {
+  outline: none;
+}
+.structureInput > input {
+  margin: 0 0 3% 0;
+  border: none;
+  padding: 2%;
+  box-shadow: -2px 2px 6px rgba(0, 0, 0, 0.15);
+  border-radius: 5px;
+}
+
+.structureInput > label {
+  font-size: small;
+}
+.editorDiv {
+  width: 90%;
+}
+.structureEnd {
+  display: flex;
+  flex-wrap: wrap;
+  width: 90%;
+  justify-content: space-between;
+  margin-top: 30px;
+}
+
+.structureBottom {
+  display: flex;
+  flex-direction: column;
+  flex-basis: 45%;
+}
+
+.structureBottom > select {
+  width: 100%;
+  border: none;
+  border-radius: 10px;
+  font-size: small;
+  box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.25);
+  border-radius: 4px;
+  padding: 5%;
+  color: #495057;
+}
+.structureBottom > select:focus {
+  outline: none;
+}
+
+.structureBottom > select > option {
+  font-size: 13px;
+}
+.file-input {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-radius: 4px;
+  box-shadow: 0 2px 8px 0 #00000026;
+  border: 1px solid #ccc;
+  overflow: hidden;
+  font-weight: 700;
+}
+
+.hidden-input {
+  display: none;
+}
+
+.file-label {
+  flex-grow: 1;
+  cursor: pointer;
+  padding: 6px 12px;
+  background-color: #ffffff;
+  color: #495057;
+}
+
+.upload-button {
+  background-color: #e9ecef;
+  color: #495057;
+  border: none;
+  padding: 6px 16px;
+  cursor: pointer;
+}
+
+.structuredButtons {
+  width: 90%;
+  padding: 20px 0 50px 0;
+  display: flex;
+  justify-content: flex-end;
+}
+
+.structuredButtons > button {
+  height: 40px;
+  background-color: #0029ff;
+  padding: 5px 15px;
+  color: white;
+  border-radius: 15px;
+  border: none;
+  cursor: pointer;
+  font-weight: 500;
+  font-size: 15px;
+  margin: 0 5px;
+  transition: 0.5s;
+}
+
+.structuredButtons > button > svg{
+  margin-right: 8px;
+}
+
+.structuredButtons > button:hover {
+  color: rgb(38, 38, 38);
+}
+.tox-statusbar__branding{
+  display: none;
 }
