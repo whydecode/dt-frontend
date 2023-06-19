@@ -1,0 +1,39 @@
+.submitButton {
+  background-color: #0029ff;
+  color: white;
+  position: fixed;
+  right: 8%;
+  font-size: 15px;
+  padding: 10px 15px;
+  border: none;
+  margin-top: 90px;
+  border-radius: 10px;
+  z-index: 100;
+}
+.sideButtons {
+  position: fixed;
+  right: 1%;
+  bottom: 1%;
+  display: flex;
+  flex-direction: column;
+  z-index: 100;
+  cursor: pointer;
+}
+
+.sideButtons > button {
+  background-color: #0029ff;
+  color: white;
+  border-radius: 50%;
+  border: none;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 5px 0;
+  aspect-ratio: 1;
+  cursor: pointer;
+  max-width: 60px;
+}
+
+.sideButtons > button > img {
+  width: 50%;
+}

@@ -236,10 +236,11 @@
 }
 .taskBody {
   background-color: white;
-  transition: 0.5s;
+  transition: 0.5s ease;
   display: flex;
   justify-content: space-around;
   flex-wrap: wrap;
+  overflow: hidden;
 }
 .taskBody > iframe {
   width: 99.5%;
@@ -255,7 +256,7 @@
 
 .bodyHead > img {
   margin-right: 10%;
-  /* transform: rotateZ(180deg); */
+  transition: 0.5s;
 }
 
 .subThread {
@@ -349,6 +350,7 @@
   display: flex;
   justify-content: space-between;
   width: 85%;
+  margin-bottom: 10px;
 }
 .threadEnd > select {
   width: 30%;
@@ -494,13 +496,83 @@
   transition: 0.5s;
 }
 
-.structuredButtons > button > svg{
+.structuredButtons > button > svg {
   margin-right: 8px;
 }
 
 .structuredButtons > button:hover {
   color: rgb(38, 38, 38);
 }
-.tox-statusbar__branding{
+.tox-statusbar__branding {
   display: none;
+}
+
+.lastDivs {
+  width: 90%;
+}
+
+.lastDivs > .intro,
+.lastDivs > .threadA {
+  display: flex;
+  align-items: center;
+  height: 40px;
+  background-color: #f2f2f2;
+  border: 1px solid #d9d7d7;
+  margin-bottom: 20px;
+}
+
+.lastDivs > .threadA {
+  background-color: #fcfcfc;
+  border: none;
+  border-top: 1px solid #d9d7d7;
+  border-bottom: 1px solid #d9d7d7;
+}
+
+.lastDivs > .intro > img,
+.lastDivs > .threadA > img {
+  width: 18px;
+  height: 12px;
+  margin: 0 20px 0 10px;
+  transition: 0.3s;
+}
+
+.lastDivs > .intro > h4,
+.lastDivs > .threadA > h4 {
+  margin: 0;
+}
+
+.lastData > div > .threadA {
+  display: flex;
+  align-items: center;
+  height: 35px;
+  background-color: #fcfcfc;
+  border: 1px solid #d9d7d7;
+  margin: 10px 0 0 10px;
+  padding-left: 20px;
+}
+
+.lastDataClose {
+  display: none;
+}
+
+.lastData > div > div > p {
+  padding-left: 25px;
+}
+.lastData > p {
+  padding-left: 20px;
+}
+.showButton {
+  display: flex;
+  justify-content: flex-end;
+  margin-bottom: 20px;
+}
+.showButton > button {
+  background-color: transparent;
+  font-size: 15px;
+  border: none;
+  cursor: pointer;
+}
+.showButton > button:hover {
+  text-decoration: underline;
+  color: #0066ff;
 }
